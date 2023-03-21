@@ -21,6 +21,7 @@
 		7C6EBC9929C8F2F40008478B /* ProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6EBC9629C8F2F40008478B /* ProductsTableViewController.swift */; };
 		7C6EBC9A29C8F2F40008478B /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6EBC9729C8F2F40008478B /* ProductViewController.swift */; };
 		7C6EBC9B29C8F2F40008478B /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6EBC9829C8F2F40008478B /* ProductTableViewCell.swift */; };
+		7C75957A29C9D06400BF37C0 /* TotalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C75957929C9D06400BF37C0 /* TotalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		7C6EBC9629C8F2F40008478B /* ProductsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsTableViewController.swift; sourceTree = "<group>"; };
 		7C6EBC9729C8F2F40008478B /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		7C6EBC9829C8F2F40008478B /* ProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
+		7C75957929C9D06400BF37C0 /* TotalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				7C5B259329C936B700EA3D03 /* ProductsListing */,
 				7C6EBC9529C8F2D20008478B /* Products */,
 				0736CE092942CA7000BF97BE /* Settings */,
+				7C75957829C9D02500BF37C0 /* TotalView */,
 				07A135362926EDA600397111 /* Files */,
 				07A135392926EEAC00397111 /* Shared */,
 				07494645291B0F5600C5B115 /* Main.storyboard */,
@@ -179,6 +182,22 @@
 			path = Products;
 			sourceTree = "<group>";
 		};
+		7C75957829C9D02500BF37C0 /* TotalView */ = {
+			isa = PBXGroup;
+			children = (
+				7C75957B29C9D56C00BF37C0 /* Controller */,
+			);
+			path = TotalView;
+			sourceTree = "<group>";
+		};
+		7C75957B29C9D56C00BF37C0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7C75957929C9D06400BF37C0 /* TotalViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -251,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C75957A29C9D06400BF37C0 /* TotalViewController.swift in Sources */,
 				0758A63C2940036400544513 /* UIViewController+Context.swift in Sources */,
 				07494640291B0F5600C5B115 /* AppDelegate.swift in Sources */,
 				0736CE0C2942CA8500BF97BE /* SettingsViewController.swift in Sources */,
@@ -407,6 +427,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RY9BLJ67LB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ComprasUSA/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ComprasUSA;
@@ -436,6 +457,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RY9BLJ67LB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ComprasUSA/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ComprasUSA;
