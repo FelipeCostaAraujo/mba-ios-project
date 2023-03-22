@@ -43,11 +43,7 @@ class ProductViewController: UIViewController {
     }
     
     @objc func done() {
-        if (pickerView.selectedRow(inComponent: 0)) == 0{
-            cancel()
-            return
-        }
-        textFieldState.text = states[pickerView.selectedRow(inComponent: 0)].name
+        states.count > 0 ? textFieldState.text = states[pickerView.selectedRow(inComponent: 0)].name : nil
         cancel()
     }
     
@@ -130,10 +126,6 @@ class ProductViewController: UIViewController {
     }
     
     @IBAction func registerProduct(_ sender: Any) {
-        if product == nil {
-            product = Product(context: context)
-        }
-        
         if (textFieldTitle.text?.isEmpty)! {
             showAlert(title: "Erro", message: "Digite o nome do produto.", toFocus:textFieldTitle)
             return
@@ -147,6 +139,10 @@ class ProductViewController: UIViewController {
         if (textFieldValue.text?.isEmpty)! {
             showAlert(title: "Erro", message: "Digite um valor para o produto.", toFocus:textFieldValue)
             return
+        }
+        
+        if product == nil {
+            product = Product(context: context)
         }
         
         product?.states = states[pickerView.selectedRow(inComponent: 0)]
