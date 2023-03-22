@@ -39,6 +39,10 @@ class ProductViewController: UIViewController {
     }
     
     @objc func done() {
+        if (pickerView.selectedRow(inComponent: 0)) == 0{
+            cancel()
+            return
+        }
         textFieldState.text = states[pickerView.selectedRow(inComponent: 0)].name
         cancel()
     }
@@ -127,17 +131,17 @@ class ProductViewController: UIViewController {
         }
         
         if (textFieldTitle.text?.isEmpty)! {
-            showAlert(title: "Erro", message: "Digite o nome do produto.", ViewController: self, toFocus:textFieldTitle)
+            showAlert(title: "Erro", message: "Digite o nome do produto.", toFocus:textFieldTitle)
             return
         }
         
         if (textFieldState.text?.isEmpty)! {
-            showAlert(title: "Erro", message: "Escolha um estado.", ViewController: self, toFocus:textFieldState)
+            showAlert(title: "Erro", message: "Escolha um estado.", toFocus:textFieldState)
             return
         }
         
         if (textFieldValue.text?.isEmpty)! {
-            showAlert(title: "Erro", message: "Digite um valor para o produto.", ViewController: self, toFocus:textFieldValue)
+            showAlert(title: "Erro", message: "Digite um valor para o produto.", toFocus:textFieldValue)
             return
         }
         
@@ -158,13 +162,13 @@ class ProductViewController: UIViewController {
 
     }
     
-    func showAlert(title: String, message: String, ViewController: UIViewController, toFocus:UITextField) {
+    func showAlert(title: String, message: String,toFocus:UITextField) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel,handler: {_ in
             toFocus.becomeFirstResponder()
         });
         alert.addAction(action)
-        ViewController.present(alert, animated: true, completion:nil)
+        present(alert, animated: true, completion:nil)
     }
     
 }

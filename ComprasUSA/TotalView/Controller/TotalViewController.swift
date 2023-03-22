@@ -25,8 +25,8 @@ class TotalViewController: UIViewController {
     
     var products: [Product] = []
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         loadProducts()
     }
 
@@ -62,4 +62,12 @@ class TotalViewController: UIViewController {
         textFieldReal.text = String(format: "%.2f", reais)
     }
 
+}
+
+// MARK: - NSFetchedResultsControllerDelegate
+extension TotalViewController: NSFetchedResultsControllerDelegate {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.products = fetchedResultsController.fetchedObjects!
+        calculate()
+    }
 }
