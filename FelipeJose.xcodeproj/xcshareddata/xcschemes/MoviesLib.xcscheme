@@ -47,7 +47,7 @@
             BlueprintIdentifier = "0749463B291B0F5600C5B115"
             BuildableName = "ComprasUSA.app"
             BlueprintName = "ComprasUSA"
-            ReferencedContainer = "container:ComprasUSA.xcodeproj">
+            ReferencedContainer = "container:FelipeJose.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <MacroExpansion>

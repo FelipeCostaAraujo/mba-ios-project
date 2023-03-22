@@ -24,7 +24,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="344.66666666666669" height="108"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wvv-Bi-D0C">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wvv-Bi-D0C">
                                             <rect key="frame" x="12" y="10" width="63" height="80"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="80" id="c0i-J1-nXU"/>
@@ -58,8 +58,8 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="imageViewPoster" destination="wvv-Bi-D0C" id="kjg-du-ZRC"/>
-                                    <outlet property="lbName" destination="NV8-iI-APZ" id="SCI-Lr-MHB"/>
-                                    <outlet property="lbPrice" destination="cTf-K9-y7A" id="nqo-de-9j6"/>
+                                    <outlet property="labelName" destination="NV8-iI-APZ" id="SCI-Lr-MHB"/>
+                                    <outlet property="labelPrice" destination="cTf-K9-y7A" id="nqo-de-9j6"/>
                                     <segue destination="oAi-fU-Ecr" kind="show" id="Cc8-m2-cX3"/>
                                 </connections>
                             </tableViewCell>
@@ -311,17 +311,13 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Total em U$" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="diX-hl-n7F">
                                 <rect key="frame" x="137" y="102" width="100" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
-                                <color key="textColor" systemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Total em R$" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="RZK-Hw-B3n">
                                 <rect key="frame" x="139" y="239" width="97" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
-                                <color key="textColor" systemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FC0-4H-6EL">
@@ -383,9 +379,6 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

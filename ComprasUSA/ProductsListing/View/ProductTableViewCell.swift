@@ -11,19 +11,19 @@ class ProductTableViewCell: UITableViewCell {
     
     // MARK: - IBOutlets
     @IBOutlet weak var imageViewPoster: UIImageView!
-    @IBOutlet weak var lbName: UILabel!
-    @IBOutlet weak var lbPrice: UILabel!
+    @IBOutlet weak var labelName: UILabel!
+    @IBOutlet weak var labelPrice: UILabel!
     
     override func prepareForReuse() {
-        lbName.text = nil
-        lbPrice.text = nil
+        labelName.text = nil
+        labelPrice.text = nil
         imageViewPoster.image = nil
         imageViewPoster.layer.cornerRadius = 8
     }
     
     func configure(with product: Product) {
-        lbName.text = product.name
-        lbPrice.text = product.priceFormatted
+        labelName.text = product.name
+        labelPrice.text = product.priceFormatted
         imageViewPoster.image = product.poster
         imageViewPoster.layer.cornerRadius = 8
     }

@@ -21,7 +21,7 @@ class ProductViewController: UIViewController {
     // MARK: - Properties
     var product: Product?
     private var pickerView: UIPickerView!
-    var dataSource:[State] = []
+    var states:[State] = []
     
     // MARK:  Super Methods
     override func viewDidLoad() {
@@ -39,19 +39,8 @@ class ProductViewController: UIViewController {
     }
     
     @objc func done() {
-        textFieldState.text = dataSource[pickerView.selectedRow(inComponent: 0)].name
+        textFieldState.text = states[pickerView.selectedRow(inComponent: 0)].name
         cancel()
-    }
-    
-    func loadStates() {
-        let fetchRequest: NSFetchRequest<State> = State.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        do {
-            dataSource = try context.fetch(fetchRequest)
-        } catch {
-            print(error.localizedDescription)
-        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -77,6 +66,17 @@ class ProductViewController: UIViewController {
             switchCard.setOn(product.card, animated: true)
             imageViewPoster.image = product.poster
             buttonSave.setTitle("Atualizar", for: .normal)
+        }
+    }
+    
+    func loadStates() {
+        let fetchRequest: NSFetchRequest<State> = State.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        do {
+            states = try context.fetch(fetchRequest)
+        } catch {
+            print(error.localizedDescription)
         }
     }
     
@@ -141,7 +141,7 @@ class ProductViewController: UIViewController {
             return
         }
         
-        product?.states = dataSource[pickerView.selectedRow(inComponent: 0)]
+        product?.states = states[pickerView.selectedRow(inComponent: 0)]
         product?.value = Double(textFieldValue.text!)!
         product?.name = textFieldTitle.text
         product?.card = switchCard.isOn
@@ -185,7 +185,7 @@ extension ProductViewController: UIImagePickerControllerDelegate, UINavigationCo
 
 extension ProductViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return dataSource[row].name
+        return states[row].name
     }
 }
 
@@ -194,7 +194,7 @@ extension ProductViewController: UIPickerViewDataSource {
         return 1
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return dataSource.count
+        return states.count
     }
 }
 
