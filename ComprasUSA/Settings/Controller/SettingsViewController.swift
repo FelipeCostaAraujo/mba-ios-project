@@ -22,7 +22,7 @@ class SettingsViewController: UIViewController {
     
     // MARK: - Properties
     var dataSource: [State] = []
-    var product: Product!
+    var product: Product?
     private let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {

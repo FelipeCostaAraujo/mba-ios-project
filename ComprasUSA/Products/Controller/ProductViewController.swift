@@ -26,12 +26,16 @@ class ProductViewController: UIViewController {
     // MARK:  Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadStates()
-        preparePickerView()
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addImage(tapGestureRecognizer:)))
         imageViewPoster.isUserInteractionEnabled = true
         imageViewPoster.addGestureRecognizer(tapGestureRecognizer)
         setupUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loadStates()
+        preparePickerView()
     }
     
     @objc func cancel() {
@@ -201,4 +205,3 @@ extension ProductViewController: UIPickerViewDataSource {
         return states.count
     }
 }
-
