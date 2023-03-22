@@ -43,6 +43,12 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="estado" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lki-fs-ctH">
+                                            <rect key="frame" x="89" y="59.666666666666664" width="41.333333333333343" height="15.666666666666664"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="cTf-K9-y7A" firstAttribute="leading" secondItem="NV8-iI-APZ" secondAttribute="leading" id="0iT-M0-6JC"/>
@@ -53,13 +59,19 @@
                                         <constraint firstItem="cTf-K9-y7A" firstAttribute="trailing" secondItem="NV8-iI-APZ" secondAttribute="trailing" id="XXp-Tc-SD7"/>
                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="wvv-Bi-D0C" secondAttribute="bottom" constant="18" id="dRb-jC-L9W"/>
                                         <constraint firstAttribute="trailing" secondItem="NV8-iI-APZ" secondAttribute="trailing" constant="8" id="hK8-Eq-zVI"/>
+                                        <constraint firstItem="lki-fs-ctH" firstAttribute="top" secondItem="cTf-K9-y7A" secondAttribute="bottom" constant="8" id="iG8-Ss-2WZ"/>
+                                        <constraint firstItem="lki-fs-ctH" firstAttribute="leading" secondItem="cTf-K9-y7A" secondAttribute="leading" id="o9t-Ha-hvD"/>
                                         <constraint firstItem="NV8-iI-APZ" firstAttribute="leading" secondItem="wvv-Bi-D0C" secondAttribute="trailing" constant="14" id="p89-eg-jU4"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <string key="userLabel" base64-UTF8="YES">
+EA
+</string>
                                 <connections>
                                     <outlet property="imageViewPoster" destination="wvv-Bi-D0C" id="kjg-du-ZRC"/>
                                     <outlet property="lbName" destination="NV8-iI-APZ" id="SCI-Lr-MHB"/>
                                     <outlet property="lbPrice" destination="cTf-K9-y7A" id="nqo-de-9j6"/>
+                                    <outlet property="lbStates" destination="lki-fs-ctH" id="Zge-n5-i62"/>
                                     <segue destination="oAi-fU-Ecr" kind="show" id="Cc8-m2-cX3"/>
                                 </connections>
                             </tableViewCell>
