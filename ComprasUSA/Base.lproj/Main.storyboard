@@ -308,28 +308,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Total em U$" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="diX-hl-n7F">
-                                <rect key="frame" x="137" y="102" width="100" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Total em U$" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="diX-hl-n7F">
+                                <rect key="frame" x="139.33333333333334" y="102" width="96.333333333333343" height="21"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Total em R$" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="RZK-Hw-B3n">
-                                <rect key="frame" x="139" y="239" width="97" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Total em R$" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="RZK-Hw-B3n">
+                                <rect key="frame" x="139" y="231" width="97" height="21"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FC0-4H-6EL">
-                                <rect key="frame" x="146" y="131" width="83" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FC0-4H-6EL">
+                                <rect key="frame" x="153.66666666666666" y="128" width="67.666666666666657" height="33"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="27"/>
                                 <color key="textColor" red="1" green="0.36598688150000003" blue="0.2234014966" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oV0-iX-K8h">
-                                <rect key="frame" x="145" y="277" width="84" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oV0-iX-K8h">
+                                <rect key="frame" x="153.66666666666666" y="257" width="67.666666666666657" height="33"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="27"/>
                                 <color key="textColor" red="0.18617214479999999" green="0.86158112050000002" blue="0.13500930329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -337,6 +333,16 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OPb-1N-uGU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FC0-4H-6EL" firstAttribute="top" secondItem="diX-hl-n7F" secondAttribute="bottom" constant="5" id="73V-fu-zyt"/>
+                            <constraint firstItem="RZK-Hw-B3n" firstAttribute="top" secondItem="FC0-4H-6EL" secondAttribute="bottom" constant="70" id="IpP-PZ-R6b"/>
+                            <constraint firstItem="RZK-Hw-B3n" firstAttribute="centerX" secondItem="3kr-md-qXi" secondAttribute="centerX" id="WHz-ia-88e"/>
+                            <constraint firstItem="FC0-4H-6EL" firstAttribute="centerX" secondItem="3kr-md-qXi" secondAttribute="centerX" id="YFJ-zJ-8kl"/>
+                            <constraint firstItem="oV0-iX-K8h" firstAttribute="top" secondItem="RZK-Hw-B3n" secondAttribute="bottom" constant="5" id="adi-bf-55l"/>
+                            <constraint firstItem="diX-hl-n7F" firstAttribute="centerX" secondItem="3kr-md-qXi" secondAttribute="centerX" id="fYJ-Gu-mBF"/>
+                            <constraint firstItem="diX-hl-n7F" firstAttribute="top" secondItem="OPb-1N-uGU" secondAttribute="top" constant="55" id="nk3-PM-dGb"/>
+                            <constraint firstItem="oV0-iX-K8h" firstAttribute="centerX" secondItem="3kr-md-qXi" secondAttribute="centerX" id="yjh-DV-ddJ"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Total de Compras" image="bag" id="WgW-gt-c4s"/>
                     <connections>

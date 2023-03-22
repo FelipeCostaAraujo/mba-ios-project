@@ -42,8 +42,8 @@ class TotalViewController: UIViewController {
     }
     
     func calculate(){
-        let exchangeTax = Double(UserDefaults.standard.string(forKey: "exchange") ?? "0")!
-        let iofTax = Double(UserDefaults.standard.string(forKey: "iof") ?? "0")!
+        let exchangeTax = Double(UserDefaults.standard.string(forKey: "exchange") ?? "3.2")!
+        let iofTax = Double(UserDefaults.standard.string(forKey: "iof") ?? "6.38")!
         
         var dolars = 0.0
         var reais = 0.0

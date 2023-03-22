@@ -35,8 +35,8 @@ class SettingsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tfExchange.text = userDefaults.string(forKey: "exchange")
-        tfIOF.text = userDefaults.string(forKey: "iof")
+        tfExchange.text = userDefaults.string(forKey: "exchange")  ?? "3.2"
+        tfIOF.text = userDefaults.string(forKey: "iof")  ?? "6.38"
     }
     
     @IBAction func editExchange(_ sender: Any) {
