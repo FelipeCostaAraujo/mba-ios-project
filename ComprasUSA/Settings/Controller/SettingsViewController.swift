@@ -165,8 +165,11 @@ extension SettingsViewController: UITableViewDataSource {
         cell.textLabel?.text = state.name
         cell.detailTextLabel?.text = "\(state.tax)"
         cell.accessoryType = .none
-
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showAlert(type: .edit, state: dataSource[indexPath.row])
     }
 
 }
