@@ -16,7 +16,7 @@
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
-			<string>IOF</string>
+			<string>IOF (%)</string>
 			<key>Key</key>
 			<string>iof</string>
 			<key>KeyboardType</key>
@@ -28,7 +28,7 @@
 			<key>KeyboardType</key>
 			<string>NumbersAndPunctuation</string>
 			<key>Title</key>
-			<string>Dolar</string>
+			<string>Cotação do dólar</string>
 			<key>Key</key>
 			<string>exchange</string>
 		</dict>

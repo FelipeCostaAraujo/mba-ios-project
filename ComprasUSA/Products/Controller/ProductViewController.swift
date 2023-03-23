@@ -21,17 +21,21 @@ class ProductViewController: UIViewController {
     // MARK: - Properties
     var product: Product?
     private var pickerView: UIPickerView!
-    var dataSource:[State] = []
+    var states:[State] = []
     
     // MARK:  Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadStates()
-        preparePickerView()
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addImage(tapGestureRecognizer:)))
         imageViewPoster.isUserInteractionEnabled = true
         imageViewPoster.addGestureRecognizer(tapGestureRecognizer)
         setupUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loadStates()
+        preparePickerView()
     }
     
     @objc func cancel() {
@@ -39,19 +43,8 @@ class ProductViewController: UIViewController {
     }
     
     @objc func done() {
-        textFieldState.text = dataSource[pickerView.selectedRow(inComponent: 0)].name
+        states.count > 0 ? textFieldState.text = states[pickerView.selectedRow(inComponent: 0)].name : nil
         cancel()
-    }
-    
-    func loadStates() {
-        let fetchRequest: NSFetchRequest<State> = State.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        do {
-            dataSource = try context.fetch(fetchRequest)
-        } catch {
-            print(error.localizedDescription)
-        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -77,6 +70,17 @@ class ProductViewController: UIViewController {
             switchCard.setOn(product.card, animated: true)
             imageViewPoster.image = product.poster
             buttonSave.setTitle("Atualizar", for: .normal)
+        }
+    }
+    
+    func loadStates() {
+        let fetchRequest: NSFetchRequest<State> = State.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        do {
+            states = try context.fetch(fetchRequest)
+        } catch {
+            print(error.localizedDescription)
         }
     }
     
@@ -122,26 +126,26 @@ class ProductViewController: UIViewController {
     }
     
     @IBAction func registerProduct(_ sender: Any) {
-        if product == nil {
-            product = Product(context: context)
-        }
-        
         if (textFieldTitle.text?.isEmpty)! {
-            showAlert(title: "Erro", message: "Digite o nome do produto.", ViewController: self, toFocus:textFieldTitle)
+            showAlert(title: "Erro", message: "Digite o nome do produto.", toFocus:textFieldTitle)
             return
         }
         
         if (textFieldState.text?.isEmpty)! {
-            showAlert(title: "Erro", message: "Escolha um estado.", ViewController: self, toFocus:textFieldState)
+            showAlert(title: "Erro", message: "Escolha um estado.", toFocus:textFieldState)
             return
         }
         
         if (textFieldValue.text?.isEmpty)! {
-            showAlert(title: "Erro", message: "Digite um valor para o produto.", ViewController: self, toFocus:textFieldValue)
+            showAlert(title: "Erro", message: "Digite um valor para o produto.", toFocus:textFieldValue)
             return
         }
         
-        product?.states = dataSource[pickerView.selectedRow(inComponent: 0)]
+        if product == nil {
+            product = Product(context: context)
+        }
+        
+        product?.states = states[pickerView.selectedRow(inComponent: 0)]
         product?.value = Double(textFieldValue.text!)!
         product?.name = textFieldTitle.text
         product?.card = switchCard.isOn
@@ -158,13 +162,13 @@ class ProductViewController: UIViewController {
 
     }
     
-    func showAlert(title: String, message: String, ViewController: UIViewController, toFocus:UITextField) {
+    func showAlert(title: String, message: String,toFocus:UITextField) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel,handler: {_ in
             toFocus.becomeFirstResponder()
         });
         alert.addAction(action)
-        ViewController.present(alert, animated: true, completion:nil)
+        present(alert, animated: true, completion:nil)
     }
     
 }
@@ -185,7 +189,7 @@ extension ProductViewController: UIImagePickerControllerDelegate, UINavigationCo
 
 extension ProductViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return dataSource[row].name
+        return states[row].name
     }
 }
 
@@ -194,7 +198,6 @@ extension ProductViewController: UIPickerViewDataSource {
         return 1
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return dataSource.count
+        return states.count
     }
 }
-

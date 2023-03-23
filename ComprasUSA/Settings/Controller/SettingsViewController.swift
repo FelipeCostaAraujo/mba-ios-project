@@ -16,46 +16,46 @@ enum CategoryType {
 class SettingsViewController: UIViewController {
 
     // MARK: - IBOutlets
-    @IBOutlet weak var tfExchange: UITextField!
-    @IBOutlet weak var tfIOF: UITextField!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var textFieldExchange: UITextField!
+    @IBOutlet weak var textFieldIOF: UITextField!
+    @IBOutlet weak var statesTableView: UITableView!
     
     // MARK: - Properties
     var dataSource: [State] = []
-    var product: Product!
+    var product: Product?
     private let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        tableView.delegate = self
-        tableView.dataSource = self
+        statesTableView.delegate = self
+        statesTableView.dataSource = self
         loadStates()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tfExchange.text = userDefaults.string(forKey: "exchange")
-        tfIOF.text = userDefaults.string(forKey: "iof")
+        textFieldExchange.text = userDefaults.string(forKey: "exchange")  ?? "3.2"
+        textFieldIOF.text = userDefaults.string(forKey: "iof")  ?? "6.38"
     }
     
     @IBAction func editExchange(_ sender: Any) {
         
-        if (tfExchange.text?.isEmpty)! {
-            alertWithTitle(title: "Erro", message: "Digite uma cotação.", ViewController: self, toFocus:tfExchange)
+        if (textFieldExchange.text?.isEmpty)! {
+            alertWithTitle(title: "Erro", message: "Digite uma cotação.", ViewController: self, toFocus:textFieldExchange)
             return
         } else {
-            userDefaults.set(tfExchange.text, forKey: "exchange")
+            userDefaults.set(textFieldExchange.text, forKey: "exchange")
         }
     }
    
     @IBAction func editIOF(_ sender: Any) {
         
-        if (tfIOF.text?.isEmpty)! {
-            alertWithTitle(title: "Erro", message: "Digite o IOF.", ViewController: self, toFocus:tfIOF)
+        if (textFieldIOF.text?.isEmpty)! {
+            alertWithTitle(title: "Erro", message: "Digite o IOF.", ViewController: self, toFocus:textFieldIOF)
             return
         } else {
-            userDefaults.set(tfIOF.text, forKey: "iof")
+            userDefaults.set(textFieldIOF.text, forKey: "iof")
         }
         
     }
@@ -68,7 +68,7 @@ class SettingsViewController: UIViewController {
         fetchRequest.sortDescriptors = [sortDescriptor]
         do {
             dataSource = try context.fetch(fetchRequest)
-            tableView.reloadData()
+            statesTableView.reloadData()
         } catch {
             print(error.localizedDescription)
         }
@@ -95,7 +95,7 @@ class SettingsViewController: UIViewController {
         alert.addAction(UIAlertAction(title: title, style: .default, handler: { (action: UIAlertAction) in
             
             if ((alert.textFields?.first?.text?.isEmpty)! || (alert.textFields?.last?.text?.isEmpty)!){
-                self.alertWithTitle(title: "Erro", message: "Erro ao adicionar o estado", ViewController: self, toFocus: self.tfIOF)
+                self.alertWithTitle(title: "Erro", message: "Erro ao adicionar o estado", ViewController: self, toFocus: self.textFieldIOF)
                 return
             }
             else {
@@ -141,7 +141,7 @@ extension SettingsViewController: UITableViewDelegate {
             try? self.context.save()
             
             self.dataSource.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            self.statesTableView.deleteRows(at: [indexPath], with: .automatic)
             
             completionHandler(true)
         }
