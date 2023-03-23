@@ -24,7 +24,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="108"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wvv-Bi-D0C">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wvv-Bi-D0C">
                                             <rect key="frame" x="12" y="10" width="63" height="80"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="80" id="c0i-J1-nXU"/>
@@ -92,7 +92,7 @@ EA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tAh-Ft-SIK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-860" y="166"/>
+            <point key="canvasLocation" x="-1697" y="166"/>
         </scene>
         <!--Cadastrar Produto-->
         <scene sceneID="0Py-ei-0O0">
@@ -251,7 +251,7 @@ EA
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jBb-9N-MsU">
-                                                    <rect key="frame" x="20" y="11.999999999999998" width="33" height="20.333333333333332"/>
+                                                    <rect key="frame" x="16" y="11.999999999999998" width="33" height="20.333333333333332"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -312,14 +312,14 @@ EA
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Ajustes" leftItemsSupplementBackButton="YES" id="LXv-KX-Wgh"/>
                     <connections>
-                        <outlet property="tableView" destination="XlI-eB-yqf" id="nM1-vQ-4zg"/>
-                        <outlet property="tfExchange" destination="cPI-9G-rzk" id="Oiz-eH-rqV"/>
-                        <outlet property="tfIOF" destination="UkX-eb-fZU" id="XQI-AK-snB"/>
+                        <outlet property="statesTableView" destination="XlI-eB-yqf" id="nM1-vQ-4zg"/>
+                        <outlet property="textFieldExchange" destination="cPI-9G-rzk" id="Oiz-eH-rqV"/>
+                        <outlet property="textFieldIOF" destination="UkX-eb-fZU" id="XQI-AK-snB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vjl-3J-PLY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="853.60000000000002" y="3.6945812807881775"/>
+            <point key="canvasLocation" x="-319" y="-590"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -503,6 +503,7 @@ EA
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <tabBarAppearance key="scrollEdgeAppearance"/>
                     </tabBar>
                     <connections>
                         <segue destination="boE-fj-gdX" kind="relationship" relationship="viewControllers" id="hSb-bB-kKr"/>
@@ -512,23 +513,61 @@ EA
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNT-7I-0kH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2908" y="-723"/>
+            <point key="canvasLocation" x="-2959" y="-590"/>
         </scene>
         <!--Total de Compras-->
         <scene sceneID="aYN-6x-Y7Z">
             <objects>
-                <viewController id="nhM-bp-KKJ" sceneMemberID="viewController">
+                <viewController id="nhM-bp-KKJ" customClass="TotalViewController" customModule="ComprasUSA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3kr-md-qXi">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Total em U$" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="diX-hl-n7F">
+                                <rect key="frame" x="252.00000000000003" y="55" width="96.333333333333343" height="21"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Total em R$" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="RZK-Hw-B3n">
+                                <rect key="frame" x="251.66666666666663" y="184" width="97" height="21"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FC0-4H-6EL">
+                                <rect key="frame" x="266.33333333333331" y="81" width="67.666666666666686" height="33"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="27"/>
+                                <color key="textColor" red="1" green="0.36598688150000003" blue="0.2234014966" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oV0-iX-K8h">
+                                <rect key="frame" x="266.33333333333331" y="210" width="67.666666666666686" height="33"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="27"/>
+                                <color key="textColor" red="0.18617214479999999" green="0.86158112050000002" blue="0.13500930329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="OPb-1N-uGU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FC0-4H-6EL" firstAttribute="top" secondItem="diX-hl-n7F" secondAttribute="bottom" constant="5" id="73V-fu-zyt"/>
+                            <constraint firstItem="RZK-Hw-B3n" firstAttribute="top" secondItem="FC0-4H-6EL" secondAttribute="bottom" constant="70" id="IpP-PZ-R6b"/>
+                            <constraint firstItem="RZK-Hw-B3n" firstAttribute="centerX" secondItem="3kr-md-qXi" secondAttribute="centerX" id="WHz-ia-88e"/>
+                            <constraint firstItem="FC0-4H-6EL" firstAttribute="centerX" secondItem="3kr-md-qXi" secondAttribute="centerX" id="YFJ-zJ-8kl"/>
+                            <constraint firstItem="oV0-iX-K8h" firstAttribute="top" secondItem="RZK-Hw-B3n" secondAttribute="bottom" constant="5" id="adi-bf-55l"/>
+                            <constraint firstItem="diX-hl-n7F" firstAttribute="centerX" secondItem="3kr-md-qXi" secondAttribute="centerX" id="fYJ-Gu-mBF"/>
+                            <constraint firstItem="diX-hl-n7F" firstAttribute="top" secondItem="OPb-1N-uGU" secondAttribute="top" constant="55" id="nk3-PM-dGb"/>
+                            <constraint firstItem="oV0-iX-K8h" firstAttribute="centerX" secondItem="3kr-md-qXi" secondAttribute="centerX" id="yjh-DV-ddJ"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Total de Compras" image="bag" id="WgW-gt-c4s"/>
+                    <connections>
+                        <outlet property="textFieldDollar" destination="FC0-4H-6EL" id="GTP-XW-0cg"/>
+                        <outlet property="textFieldReal" destination="oV0-iX-K8h" id="uWQ-mC-foz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0w-X0-bbZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1704" y="-691"/>
+            <point key="canvasLocation" x="-1698.4000000000001" y="-974.6305418719212"/>
         </scene>
         <!--Compras-->
         <scene sceneID="TMY-3v-qtV">
@@ -551,36 +590,21 @@ EA
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Xi2-Mn-Haw"/>
+        <segue reference="qqn-w3-BEo"/>
         <segue reference="M1k-rh-hFA"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bag" width="23" height="23"/>
         <image name="flag" width="2000" height="1333"/>
-        <image name="gradient" width="600" height="120"/>
-        <image name="play" width="53" height="53"/>
         <image name="settings 1" width="23" height="23"/>
-        <image name="toystory3" width="400" height="330"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
