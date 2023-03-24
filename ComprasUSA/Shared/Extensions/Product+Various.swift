@@ -8,6 +8,16 @@
 import UIKit
 
 extension Product {
+    var priceFormattedUSA: String {
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.usesGroupingSeparator = true
+        currencyFormatter.numberStyle = .currency
+        currencyFormatter.currencyCode = "USD"
+        currencyFormatter.currencySymbol = "$"
+
+        return currencyFormatter.string(from: NSNumber(value: value))!
+    }
+    
     var priceFormatted: String {
         "\(value)"
     }
