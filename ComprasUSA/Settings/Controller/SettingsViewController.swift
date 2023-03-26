@@ -30,13 +30,13 @@ class SettingsViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         statesTableView.delegate = self
         statesTableView.dataSource = self
-        loadStates()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         textFieldExchange.text = userDefaults.string(forKey: "exchange")  ?? "3.2"
         textFieldIOF.text = userDefaults.string(forKey: "iof")  ?? "6.38"
+        loadStates()
     }
     
     @IBAction func editExchange(_ sender: Any) {
@@ -172,4 +172,11 @@ extension SettingsViewController: UITableViewDataSource {
         showAlert(type: .edit, state: dataSource[indexPath.row])
     }
 
+}
+
+// MARK: - NSFetchedResultsControllerDelegate
+extension SettingsViewController: NSFetchedResultsControllerDelegate {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        loadStates()
+    }
 }
