@@ -20,8 +20,15 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var textFieldIOF: UITextField!
     @IBOutlet weak var statesTableView: UITableView!
     
+    private let label: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.text = "Lista de estados vazia."
+        label.textAlignment = .center
+        return label
+    }()
+    
     // MARK: - Properties
-    var dataSource: [State] = []
+    var states: [State] = []
     var product: Product?
     private let userDefaults = UserDefaults.standard
     
@@ -67,7 +74,7 @@ class SettingsViewController: UIViewController {
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         do {
-            dataSource = try context.fetch(fetchRequest)
+            states = try context.fetch(fetchRequest)
             statesTableView.reloadData()
         } catch {
             print(error.localizedDescription)
@@ -136,11 +143,11 @@ extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Excluir") { action, view, completionHandler in
-            let state = self.dataSource[indexPath.row]
+            let state = self.states[indexPath.row]
             self.context.delete(state)
             try? self.context.save()
             
-            self.dataSource.remove(at: indexPath.row)
+            self.states.remove(at: indexPath.row)
             self.statesTableView.deleteRows(at: [indexPath], with: .automatic)
             
             completionHandler(true)
@@ -156,12 +163,14 @@ extension SettingsViewController: UITableViewDelegate {
 extension SettingsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count
+        let rows = states.count
+        tableView.backgroundView = rows == 0 ? label : nil
+        return rows
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let state = dataSource[indexPath.row]
+        let state = states[indexPath.row]
         cell.textLabel?.text = state.name
         cell.detailTextLabel?.text = "\(state.tax)"
         cell.accessoryType = .none
@@ -169,7 +178,7 @@ extension SettingsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showAlert(type: .edit, state: dataSource[indexPath.row])
+        showAlert(type: .edit, state: states[indexPath.row])
     }
 
 }
