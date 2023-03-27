@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ProductViewController: UIViewController {
+final class ProductViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var textFieldTitle: UITextField!
@@ -126,17 +126,29 @@ class ProductViewController: UIViewController {
     }
     
     @IBAction func registerProduct(_ sender: Any) {
-        if (textFieldTitle.text?.isEmpty)! {
+        guard let title = textFieldTitle.text else {
+            return
+        }
+        
+        if title.isEmpty {
             showAlert(title: "Erro", message: "Digite o nome do produto.", toFocus:textFieldTitle)
             return
         }
         
-        if (textFieldState.text?.isEmpty)! {
+        guard let state = textFieldState.text else {
+            return
+        }
+        
+        if state.isEmpty {
             showAlert(title: "Erro", message: "Escolha um estado.", toFocus:textFieldState)
             return
         }
         
-        if (textFieldValue.text?.isEmpty)! {
+        guard let value = textFieldValue.text else {
+            return
+        }
+        
+        if value.isEmpty {
             showAlert(title: "Erro", message: "Digite um valor para o produto.", toFocus:textFieldValue)
             return
         }
@@ -145,21 +157,21 @@ class ProductViewController: UIViewController {
             product = Product(context: context)
         }
         
+        let formatter = NumberFormatter()
+        formatter.decimalSeparator = ","
+        let grade = formatter.number(from: textFieldValue.text ?? "")
+        
         product?.states = states[pickerView.selectedRow(inComponent: 0)]
-        product?.value = Double(textFieldValue.text!)!
+        product?.value = grade?.doubleValue ?? 0//Double(textFieldValue.text ?? "") ?? 0
         product?.name = textFieldTitle.text
         product?.card = switchCard.isOn
         product?.image = imageViewPoster.image?.jpegData(compressionQuality: 0.8)
         do {
             try context.save()
+            navigationController?.popViewController(animated: true)
         } catch {
             print(error.localizedDescription)
         }
-        
-        if let nav = self.navigationController {
-            nav.popViewController(animated: true)
-        }
-
     }
     
     func showAlert(title: String, message: String,toFocus:UITextField) {

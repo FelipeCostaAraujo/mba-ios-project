@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProductTableViewCell: UITableViewCell {
+final class ProductTableViewCell: UITableViewCell {
     
     // MARK: - IBOutlets
     @IBOutlet weak var imageViewPoster: UIImageView!
@@ -48,7 +48,7 @@ class ProductTableViewCell: UITableViewCell {
 
 extension NSMutableAttributedString {
     var fontSize:CGFloat { return 14 }
-    var boldFont:UIFont { return UIFont(name: "AvenirNext-Bold", size: fontSize) ?? UIFont.boldSystemFont(ofSize: fontSize) }
+    var boldFont:UIFont { return UIFont(name: "AvenirNext-Bold", size: fontSize) ?? UIFont.boldSystemFont(ofSize: fontSize)}
     var normalFont:UIFont { return UIFont(name: "AvenirNext-Regular", size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)}
     
     func bold(_ value:String) -> NSMutableAttributedString {

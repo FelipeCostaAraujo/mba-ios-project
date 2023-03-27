@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class TotalViewController: UIViewController {
+final class TotalViewController: UIViewController {
 
     @IBOutlet weak var textFieldDollar: UILabel!
     @IBOutlet weak var textFieldReal: UILabel!
@@ -23,7 +23,7 @@ class TotalViewController: UIViewController {
         return fetchedResultsController
     }()
     
-    var products: [Product] = []
+    private var products: [Product] = []
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -43,8 +43,8 @@ class TotalViewController: UIViewController {
     }
     
     func calculate(){
-        let exchangeTax = Double(UserDefaults.standard.string(forKey: "exchange") ?? "3.2")!
-        let iofTax = Double(UserDefaults.standard.string(forKey: "iof") ?? "6.38")!
+        let exchangeTax = Double(UserDefaults.standard.string(forKey: "exchange") ?? "3.2") ?? 3.2
+        let iofTax = Double(UserDefaults.standard.string(forKey: "iof") ?? "6.38") ?? 6.38
         
         var dolars = 0.0
         var reais = 0.0

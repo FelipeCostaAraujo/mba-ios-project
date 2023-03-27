@@ -233,7 +233,10 @@ EA
                                     <constraint firstAttribute="height" constant="35" id="C91-b8-6AZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="editExchange:" destination="xlM-C3-mKm" eventType="editingDidEnd" id="PPl-a8-NvB"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UkX-eb-fZU">
                                 <rect key="frame" x="203" y="129" width="175" height="35"/>
@@ -241,7 +244,10 @@ EA
                                     <constraint firstAttribute="height" constant="35" id="Gnx-Lh-gTZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="editIOF:" destination="xlM-C3-mKm" eventType="editingDidEnd" id="AN2-my-dbP"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Impostos por estado" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2I-QF-v5V">
                                 <rect key="frame" x="108" y="192" width="177" height="21"/>

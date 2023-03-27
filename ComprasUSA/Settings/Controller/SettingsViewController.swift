@@ -13,12 +13,7 @@ enum CategoryType {
     case edit
 }
 
-class SettingsViewController: UIViewController {
-
-    // MARK: - IBOutlets
-    @IBOutlet weak var textFieldExchange: UITextField!
-    @IBOutlet weak var textFieldIOF: UITextField!
-    @IBOutlet weak var statesTableView: UITableView!
+final class SettingsViewController: UIViewController {
     
     private let label: UILabel = {
         let label = UILabel(frame: .zero)
@@ -26,6 +21,12 @@ class SettingsViewController: UIViewController {
         label.textAlignment = .center
         return label
     }()
+
+    // MARK: - IBOutlets
+    @IBOutlet weak var textFieldExchange: UITextField!
+    @IBOutlet weak var textFieldIOF: UITextField!
+    @IBOutlet weak var statesTableView: UITableView!
+    
     
     // MARK: - Properties
     var states: [State] = []
@@ -34,7 +35,6 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         statesTableView.delegate = self
         statesTableView.dataSource = self
     }
@@ -68,7 +68,6 @@ class SettingsViewController: UIViewController {
     }
     
     // MARK: - Methods
-    
     func loadStates() {
         let fetchRequest: NSFetchRequest<State> = State.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
@@ -120,6 +119,10 @@ class SettingsViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     // MARK: - IBActions

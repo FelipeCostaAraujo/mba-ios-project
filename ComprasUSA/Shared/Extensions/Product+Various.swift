@@ -19,7 +19,7 @@ extension Product {
     }
     
     var priceFormatted: String {
-        "\(value)"
+        return "\(value)".replacingOccurrences(of: ".", with: ",")
     }
     
     var poster: UIImage? {
