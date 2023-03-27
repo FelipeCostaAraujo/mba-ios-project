@@ -107,7 +107,7 @@ final class SettingsViewController: UIViewController {
             else {
                 let state = state ?? State(context: self.context)
                 state.name = alert.textFields?.first?.text
-                state.tax = Double((alert.textFields?.last?.text)!)!
+                state.tax = Double((alert.textFields?.last?.text) ?? "0") ?? 0
                 do {
                     try self.context.save()
                     self.loadStates()

@@ -157,12 +157,8 @@ final class ProductViewController: UIViewController {
             product = Product(context: context)
         }
         
-        let formatter = NumberFormatter()
-        formatter.decimalSeparator = ","
-        let grade = formatter.number(from: textFieldValue.text ?? "")
-        
         product?.states = states[pickerView.selectedRow(inComponent: 0)]
-        product?.value = grade?.doubleValue ?? 0//Double(textFieldValue.text ?? "") ?? 0
+        product?.value = Double(textFieldValue.text ?? "") ?? 0
         product?.name = textFieldTitle.text
         product?.card = switchCard.isOn
         product?.image = imageViewPoster.image?.jpegData(compressionQuality: 0.8)

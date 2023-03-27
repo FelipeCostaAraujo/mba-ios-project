@@ -34,7 +34,9 @@ final class ProductTableViewCell: UITableViewCell {
                 .bold("Forma de pagamento: ")
                 .normal("Cartão")
         }else{
-            paymentMethod.isHidden = true
+            paymentMethod.attributedText = NSMutableAttributedString()
+                .bold("Forma de pagamento: ")
+                .normal("Dinheiro")
         }
         
         lbStates.attributedText = NSMutableAttributedString()
